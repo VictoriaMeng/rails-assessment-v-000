@@ -20,4 +20,8 @@ Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
+<<<<<<< HEAD
 - [ ] Views use partials if appropriate
+=======
+- [ ] Views use partials if appropriate
+>>>>>>> fb659f066986cb6d500c517def4bcd51f9ce853d
