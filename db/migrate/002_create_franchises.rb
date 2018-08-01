@@ -4,7 +4,6 @@ class CreateFranchises < ActiveRecord::Migration[5.2]
     create_table :franchises do |t| 
       t.string :name
       t.string :medium
-      t.string :creator
     end
   end
 

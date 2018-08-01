@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "franchises", force: :cascade do |t|
     t.string "name"
     t.string "medium"
-    t.string "creator"
   end
 
   create_table "ratings", force: :cascade do |t|
