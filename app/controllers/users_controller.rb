@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def welcome 
   end
 
+  def login 
+    
+  end
+
   def new
     @user = User.new
   end
@@ -20,7 +24,11 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(session[:user_id])
+    if session[:user_id] == params[:id]
+      @user = User.find(session[:user_id])
+    else 
+      redirect_to root_path
+    end
   end
 
   private 
