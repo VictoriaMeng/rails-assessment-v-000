@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
-  def signin 
-    binding.pry
-  end
-
   def new
     @user = User.new
   end
