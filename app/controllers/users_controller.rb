@@ -8,12 +8,16 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
+  def logout 
+    session.delete(:user_id)
+  end
+
   def new
     @user = User.new
   end
 
   def create 
-    @user = User.find_or_create_by(name: params[:user][:name])
+    @user = User.new(user_params)
     if @user.valid? && @user.authenticate(params[:user][:password])
       @user.save 
       session[:user_id] = @user.id.to_s
@@ -24,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def show 
-    binding.pry
     if session[:user_id] == params[:id]
       @user = User.find(session[:user_id])
     else 

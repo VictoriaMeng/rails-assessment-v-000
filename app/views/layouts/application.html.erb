@@ -3,6 +3,7 @@
   <head>
     <title>RateYourFav</title>
     <h1>Rate Your Fav</h1>
+    <%= link_to("Logout", logout_path) if session[:user_id] %>
   </head>
 
   <body>
