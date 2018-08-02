@@ -4,6 +4,7 @@
     <title>RateYourFav</title>
     <h1>Rate Your Fav</h1>
     <%= link_to("Logout", logout_path) if session[:user_id] %>
+    <%= @user.errors.full_messages if @user && @user.errors.any? %>
   </head>
 
   <body>
