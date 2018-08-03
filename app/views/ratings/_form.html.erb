@@ -1,0 +1,7 @@
+<%= form_for rating, url: url, method: method do |f| %>
+  <% (1..5).to_a.each do |number| %>
+    <%= radio_button_tag(:stars, number) %>
+    <%= label_tag(number) %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
