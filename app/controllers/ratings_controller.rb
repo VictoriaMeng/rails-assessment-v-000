@@ -5,7 +5,6 @@ class RatingsController < ApplicationController
 
   def create 
     @rating = Rating.new(ratings_params)
-    binding.pry
     if @rating.valid?
       @rating.save 
       redirect_to franchise_path(@rating.franchise)
@@ -14,15 +13,29 @@ class RatingsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
+    find_franchise
+    find_rating
+    binding.pry
   end 
 
   def update
+    find_franchise
+    find_rating
+    binding.pry
   end
 
   private 
 
   def ratings_params 
     params.require(:rating).permit(:stars, :franchise_id, :user_id)
+  end
+
+  def find_franchise 
+    @franchise = Franchise.find(params[:franchise_id])
+  end
+
+  def find_rating 
+    @rating = Rating.find(params[:id])
   end
 end
