@@ -8,10 +8,9 @@ module FranchiseHelper
   end
 
   def display_user_rating 
-    # if any of the user's ratings have this franchise's id 
-    if current_user.ratings.exists?(franchise_id: @franchise.id)
-      "Your Rating: #{current_user.rating_by_franchise(@franchise)}"
-    end
+    rating = current_user.rating_by_franchise(@franchise)
+    "Your Rating: #{rating}" if rating
   end
 
+  
 end
