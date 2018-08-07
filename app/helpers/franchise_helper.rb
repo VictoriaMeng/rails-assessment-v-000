@@ -12,6 +12,6 @@ module FranchiseHelper
   end
 
   def display_rating_link
-    @rating ? link_to("Rate This #{@franchise.medium}!") : link_to("Change Your Rating!")
+    @rating ? link_to("Change Your Rating!", edit_franchise_rating_path(@franchise)) : link_to("Give #{@franchise.name} a Rating!", new_franchise_rating_path(@franchise)) 
   end
 end
