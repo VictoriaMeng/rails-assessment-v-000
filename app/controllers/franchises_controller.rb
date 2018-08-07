@@ -5,5 +5,6 @@ class FranchisesController < ApplicationController
 
   def show 
     @franchise = Franchise.find(params[:id])
+    @rating = current_user.rating_by_franchise(@franchise)  
   end
 end

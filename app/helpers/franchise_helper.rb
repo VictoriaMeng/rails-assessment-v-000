@@ -8,9 +8,10 @@ module FranchiseHelper
   end
 
   def display_user_rating 
-    rating = current_user.rating_by_franchise(@franchise)
-    "Your Rating: #{rating}" if rating
+    "Your Rating: #{@rating}" if @rating
   end
 
-  
+  def display_rating_link
+    @rating ? link_to("Rate This #{@franchise.medium}!") : link_to("Change Your Rating!")
+  end
 end
