@@ -16,13 +16,14 @@ class RatingsController < ApplicationController
   def edit
     find_franchise
     find_rating
-    binding.pry
   end 
 
   def update
     find_franchise
     find_rating
-    binding.pry
+    @rating.stars = params[:rating][:stars]
+    @rating.save if @rating.valid?
+    redirect_to franchise_path(@franchise)
   end
 
   private 
