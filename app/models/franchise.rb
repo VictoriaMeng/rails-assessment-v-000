@@ -8,6 +8,14 @@ class Franchise < ActiveRecord::Base
   def self.sort_by_name 
     self.order(:name)
   end
+  
+  def self.sort_by_top_rated 
+    self.sort_by_lowest_rated.reverse
+  end
+
+  def self.sort_by_lowest_rated 
+    self.all.map.sort { |f| f.average_rating }
+  end
 
   def average_rating
     self.ratings_total.to_f / self.count_ratings.to_f

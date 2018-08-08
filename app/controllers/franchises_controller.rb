@@ -29,6 +29,9 @@ class FranchisesController < ApplicationController
     when "name"
       @franchises = Franchise.sort_by_name 
     when "most"
+      @franchises = Franchise.sort_by_top_rated
+    else
+      @franchises = Franchise.sort_by_lowest_rated
     end
     render 'index'
   end
