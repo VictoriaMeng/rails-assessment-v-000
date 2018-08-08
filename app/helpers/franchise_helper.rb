@@ -14,4 +14,8 @@ module FranchiseHelper
   def display_rating_link
     @rating ? link_to("Change Your Rating!", edit_franchise_rating_path(@franchise)) : link_to("Give #{@franchise.name} a Rating!", new_franchise_rating_path(@franchise)) 
   end
+
+  def display_summary(f)
+    link_to(f.name, franchise_path(f)) + " - #{f.average_rating} stars"
+  end
 end
