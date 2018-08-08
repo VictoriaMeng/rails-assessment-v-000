@@ -8,7 +8,7 @@ module FranchiseHelper
   end
 
   def display_user_rating 
-    "Your Rating: #{@rating}" if @rating
+    @rating ? "Your Rating: #{@rating.stars}" : "Your Rating: None"
   end
 
   def display_rating_link

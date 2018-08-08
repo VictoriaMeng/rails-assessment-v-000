@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :franchises, through: :ratings
 
   def rating_by_franchise(franchise)
-    self.ratings.find_by(franchise_id: franchise.id).stars
+    self.ratings.find_by(franchise_id: franchise.id)
   end
+
+  # def rating_exists?(franchise)
+  #   self.ratings.exists?(franchise_id: franchise.id)
+  # end
 end
