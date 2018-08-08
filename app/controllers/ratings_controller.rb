@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController 
+
   def new 
     @rating = Rating.new(franchise_id: params[:franchise_id], user_id: session[:user_id])
   end 
