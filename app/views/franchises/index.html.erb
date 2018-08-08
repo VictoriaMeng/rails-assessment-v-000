@@ -1,4 +1,6 @@
 <h2>Franchises</h2>
-<% @franchises.each do |f| %>
-  <%= link_to(f.name, franchise_path(f)) %>
-<% end %>
+<ol>
+  <% @franchises.each do |f| %>
+    <li><%= link_to(f.name, franchise_path(f)) %></li>
+  <% end %>
+</ol>
