@@ -2,6 +2,9 @@ class Franchise < ActiveRecord::Base
   has_many :ratings 
   has_many :users, through: :franchises
 
+  validates :name, presence: true, uniqueness: true
+  validates :medium, presence: true
+
   def average_rating
     self.ratings_total.to_f / self.count_ratings.to_f
   end
