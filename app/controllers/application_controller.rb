@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless session.include?(:user_id)
-      flash[:errors] = "You must be logged in as the correct user to view this page."
-      binding.pry
+      flash[:errors] = "You must be logged in as the correct user."
       redirect_to root_path
     end
   end
