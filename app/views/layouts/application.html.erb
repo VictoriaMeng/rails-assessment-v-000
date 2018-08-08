@@ -7,6 +7,7 @@
     <%= link_to("Add More Franchises", new_franchise_path) %>
     <%= link_to("Logout", logout_path) if session[:user_id] %>
     <%= @user.errors.full_messages if @user && @user.errors.any? %>
+    <%= flash[:errors] if flash[:errors] %>
   </head>
 
   <body>

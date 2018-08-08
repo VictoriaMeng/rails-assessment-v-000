@@ -11,7 +11,4 @@ class User < ActiveRecord::Base
     self.ratings.find_by(franchise_id: franchise.id)
   end
 
-  # def rating_exists?(franchise)
-  #   self.ratings.exists?(franchise_id: franchise.id)
-  # end
 end

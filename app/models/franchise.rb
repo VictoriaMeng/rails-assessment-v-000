@@ -15,5 +15,7 @@ class Franchise < ActiveRecord::Base
 
   def count_ratings 
     self.ratings.count
-  end
+  end  
+
+
 end
