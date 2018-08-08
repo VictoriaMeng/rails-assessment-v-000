@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :franchises do
     resources :ratings 
   end
-  
+  get '/sort', to: 'franchises#sort'
 end

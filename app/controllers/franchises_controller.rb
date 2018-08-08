@@ -2,7 +2,7 @@ class FranchisesController < ApplicationController
   before_action :require_login
 
   def index 
-    @franchises = Franchise.all
+    @franchises = Franchise.sort_by_name
   end
 
   def show 
@@ -22,6 +22,15 @@ class FranchisesController < ApplicationController
     else
       redirect_to new_franchise_path
     end
+  end
+
+  def sort 
+    case params[:sort]
+    when "name"
+      @franchises = Franchise.sort_by_name 
+    when "most"
+    end
+    render 'index'
   end
 
   private 
