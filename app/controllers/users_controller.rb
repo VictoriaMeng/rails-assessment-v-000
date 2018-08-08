@@ -1,6 +1,6 @@
 class UsersController < ApplicationController 
   layout "application"
-  before_action :require_login, only: [:logout, :show]
+  before_action :require_login, only: [:show]
 
   def welcome 
   end

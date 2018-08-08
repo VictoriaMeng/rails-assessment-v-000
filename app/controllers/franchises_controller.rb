@@ -1,4 +1,6 @@
 class FranchisesController < ApplicationController 
+  before_action :require_login
+
   def index 
     @franchises = Franchise.all
   end
