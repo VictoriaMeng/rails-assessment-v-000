@@ -4,7 +4,17 @@ class FranchisesController < ApplicationController
   end
 
   def show 
-    @franchise = Franchise.find(params[:id])
+    @franchise = find
     @rating = current_user.rating_by_franchise(@franchise)  
+  end
+
+  def new 
+    @franchise = Franchise.new 
+  end
+
+  private 
+
+  def find 
+    Franchise.find(params[:id])
   end
 end
