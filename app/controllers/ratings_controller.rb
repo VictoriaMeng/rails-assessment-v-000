@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController 
+  before_action :require_login
 
   def new 
     @rating = Rating.new(franchise_id: params[:franchise_id], user_id: session[:user_id])
