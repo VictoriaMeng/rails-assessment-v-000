@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   def welcome 
   end
 
-  def login 
-    @user = User.new 
-  end
-
   def logout 
     session.delete(:user_id)
   end
