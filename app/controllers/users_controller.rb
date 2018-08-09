@@ -1,6 +1,7 @@
 class UsersController < ApplicationController 
   layout "application"
   before_action :require_login, only: [:show]
+  before_action :require_correct_user, only: [:show]
 
   def welcome
     redirect_to current_user if current_user
@@ -26,12 +27,8 @@ class UsersController < ApplicationController
   end
 
   def show 
-    if session[:user_id] == params[:id]
-      @user = current_user
-      @ratings = @user.ratings
-    else 
-      redirect_to root_path
-    end
+    @user = current_user
+    @ratings = @user.ratings
   end
 
   def sort
@@ -51,6 +48,17 @@ class UsersController < ApplicationController
 
   def user_params 
     params.require(:user).permit(:name, :password, :password_confirmation)
+  end
+
+  def require_correct_user
+    unless correct_user?
+      flash[:errors] = "Cannot view another user's page"
+      redirect_to user_path(session[:user_id])
+    end
+  end
+
+  def correct_user?
+    session[:user_id] == params[:id]
   end
 
 end
