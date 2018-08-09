@@ -4,6 +4,10 @@ module ApplicationHelper
     session.include?(:user_id)
   end
 
+  def current_user 
+    User.find(session[:user_id])
+  end
+
   def display_franchise_index_link
     link_to("Rate More Franchises", franchises_path)
   end
@@ -12,8 +16,12 @@ module ApplicationHelper
     link_to("Add More Franchises", new_franchise_path)
   end
 
+  def display_user_page_link 
+    link_to("#{current_user.name}'s Page", user_path(current_user))
+  end
+
   def display_logout_link
-    link_to("Logout", logout_path) if logged_in?
+    link_to("Logout", logout_path)
   end
 
   def display_errors(my_obj)

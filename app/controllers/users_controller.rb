@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     if session[:user_id] == params[:id]
       @user = current_user
       @ratings = @user.ratings
-      binding.pry
     else 
       redirect_to root_path
     end

@@ -5,6 +5,7 @@
     <h1>Rate Your Fav</h1>
     <nav>
       <% if session.include?(:user_id) %>
+        <%= display_user_page_link %>
         <%= display_franchise_index_link %>
         <%= display_new_franchise_link %>
         <%= display_logout_link %>
