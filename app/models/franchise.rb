@@ -5,7 +5,9 @@ class Franchise < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :medium, presence: true
 
-  FRANCHISES = %w(TV\ \Show Book Movie Webcomic)
+  def self.mediums 
+    [["TV Shows", "TV Shows"], ["Movie", "Movie"], ["Book", "Book"], ["Webcomic", "Webcomic"]]
+  end
 
   def self.sort_by_name 
     self.order(:name)
