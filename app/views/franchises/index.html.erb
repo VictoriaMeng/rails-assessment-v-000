@@ -1,5 +1,5 @@
 <h2>Franchises</h2>
-<p><%= render partial: "sort" %></p>
+<p><%= render partial: "sort", locals: {url: '/sort'} %></p>
 <ol>
   <% @franchises.each do |f| %>
     <li><%= display_summary(f) %></li>

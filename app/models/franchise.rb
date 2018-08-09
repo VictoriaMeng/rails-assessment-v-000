@@ -5,6 +5,8 @@ class Franchise < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :medium, presence: true
 
+  FRANCHISES = %w(TV\ \Show Book Movie Webcomic)
+
   def self.sort_by_name 
     self.order(:name)
   end
@@ -14,7 +16,7 @@ class Franchise < ActiveRecord::Base
   end
 
   def self.sort_by_lowest_rated 
-    self.all.map.sort { |f| f.average_rating }
+    self.all.map.sort { |x, y| x.average_rating <=> y.average_rating }
   end
 
   def average_rating
