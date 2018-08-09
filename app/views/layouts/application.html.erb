@@ -3,15 +3,21 @@
   <head>
     <title>RateYourFav</title>
     <h1>Rate Your Fav</h1>
-    <%= link_to("Rate More Franchises", franchises_path) %>
-    <%= link_to("Add More Franchises", new_franchise_path) %>
-    <%= link_to("Logout", logout_path) if session[:user_id] %>
-    <%= @user.errors.full_messages if @user && @user.errors.any? %>
-    <%= @rating.errors.full_messages if @rating && @rating.errors.any? %>
-    <%= flash[:errors] if flash[:errors] %>
+    <nav>
+      <% if session.include?(:user_id) %>
+        <%= display_franchise_index_link %>
+        <%= display_new_franchise_link %>
+        <%= display_logout_link %>
+      <% end %>
+    </nav>
   </head>
 
   <body>
+    <br>
+    <%= display_errors(@user) %>
+    <%= display_errors(@franchise) %>
+    <%= display_errors(@rating) %>
+    <%= display_flash_errors %>
     <%= yield %>
   </body>
 </html>

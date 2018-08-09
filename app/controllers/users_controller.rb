@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   layout "application"
   before_action :require_login, only: [:show]
 
-  def welcome 
+  def welcome
+    redirect_to current_user if current_user
   end
 
   def logout 

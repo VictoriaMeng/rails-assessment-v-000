@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id])
   end
 
+  def logged_in?
+    session.include?(:user_id)
+  end
+
   private 
 
   def require_login
-    unless session.include?(:user_id)
+    unless logged_in?
       flash[:errors] = "You must be logged in as the correct user to view this page."
       redirect_to root_path
     end
