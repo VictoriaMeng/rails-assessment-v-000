@@ -4,11 +4,7 @@ class UsersController < ApplicationController
   before_action :require_correct_user, only: [:show]
 
   def welcome
-    redirect_to current_user if current_user
-  end
-
-  def logout 
-    session.delete(:user_id)
+    redirect_to current_user if logged_in?
   end
 
   def new
