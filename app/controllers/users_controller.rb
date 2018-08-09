@@ -27,10 +27,25 @@ class UsersController < ApplicationController
 
   def show 
     if session[:user_id] == params[:id]
-      @user = User.find(session[:user_id])
+      @user = current_user
+      @ratings = @user.ratings
+      binding.pry
     else 
       redirect_to root_path
     end
+  end
+
+  def sort
+    @user = current_user
+    case params[:sort]
+    when "most"
+      @ratings = @user.sort_by_top_ratings
+    when "least"
+      @ratings = @user.sort_by_lowest_ratings
+    else 
+      @ratings = @user.sort_by_franchise_name
+    end
+    render 'show'
   end
 
   private 
