@@ -22,7 +22,7 @@ class Franchise < ActiveRecord::Base
   end
 
   def average_rating
-    self.ratings_total.to_f / self.count_ratings.to_f
+    (self.ratings_total.to_f / self.count_ratings.to_f).round(2)
   end
 
   def ratings_total 
