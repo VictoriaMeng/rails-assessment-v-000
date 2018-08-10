@@ -4,7 +4,7 @@
     <title>RateYourFav</title>
     <h1>Rate Your Fav</h1>
     <nav>
-      <% if session.include?(:user_id) %>
+      <% if logged_in? %>
         <%= display_user_page_link %>
         <%= display_franchise_index_link %>
         <%= display_new_franchise_link %>
