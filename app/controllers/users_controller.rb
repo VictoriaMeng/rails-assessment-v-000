@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   layout "application"
   before_action :require_login, only: [:show]
   before_action :require_correct_user, only: [:show]
+  before_action :redirect_if_logged_in, only: [:create, :new, :welcome]
 
   def welcome
-    redirect_to current_user if logged_in?
   end
 
   def new
@@ -55,6 +55,10 @@ class UsersController < ApplicationController
 
   def correct_user?
     session[:user_id] == params[:id].to_i
+  end
+
+  def redirect_if_logged_in
+    redirect_to current_user if logged_in?
   end
 
 end
