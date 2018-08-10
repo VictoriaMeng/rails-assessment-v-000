@@ -28,6 +28,11 @@ class RatingsController < ApplicationController
     redirect_to franchise_path(@franchise)
   end
 
+  def index  
+    find_franchise
+    @ratings = @franchise.ratings
+  end
+
   private 
 
   def ratings_params 
