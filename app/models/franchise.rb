@@ -3,10 +3,10 @@ class Franchise < ActiveRecord::Base
   has_many :users, through: :franchises
 
   validates :name, presence: true, uniqueness: true
-  validates :medium, presence: true, inclusion: { in: %w(TV\ \Show Movie Book Webcomic), message: "Medium must be show, movie, book, or webcomic" }
+  validates :medium, presence: true
 
   def self.mediums 
-    [["TV Shows", "TV Shows"], ["Movie", "Movie"], ["Book", "Book"], ["Webcomic", "Webcomic"]]
+    [["TV Shows", "TV Shows"], ["Movie", "Movie"], ["Book", "Book"], ["Webcomic", "Webcomic"], ["Video Game", "Video Game"]]
   end
 
   def self.sort_by_name 
