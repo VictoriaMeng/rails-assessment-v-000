@@ -47,7 +47,6 @@ class UsersController < ApplicationController
   end
 
   def require_correct_user
-    binding.pry
     unless correct_user?
       flash[:errors] = "Cannot view another user's page"
       redirect_to user_path(session[:user_id])

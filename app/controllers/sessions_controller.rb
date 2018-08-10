@@ -21,12 +21,12 @@ class SessionsController < ApplicationController
       u.password = auth['info']['name']
       u.password_confirmation = auth['info']['name']
     end
-    session[:user_id] = @user.id
+    session[:user_id] = @user.id.to_s
     redirect_to user_path(@user)
   end
 
   def destroy 
-    session.clear
+    session.delete(:user_id)
     redirect_to root_path
   end
 
