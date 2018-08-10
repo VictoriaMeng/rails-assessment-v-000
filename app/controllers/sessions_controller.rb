@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_logged_in, only: [:new, :create, :fb_create]
+
   def new
     @user = User.new
   end
 
   def create
-    binding.pry
     @user = User.find_by(name: params[:user][:name])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id.to_s
@@ -15,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def fb_create 
-    binding.pry
     @user = User.find_or_create_by(id: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.password = auth['info']['name']

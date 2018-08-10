@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def correct_user?
+    session[:user_id] == params[:id]
+  end
+
+  def redirect_if_logged_in
+    redirect_to current_user if logged_in?
+  end
+
 end
