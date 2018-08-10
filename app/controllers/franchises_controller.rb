@@ -16,9 +16,8 @@ class FranchisesController < ApplicationController
 
   def create 
     @franchise = Franchise.new(franchise_params)
-    @franchise.save
     if @franchise.valid?
-      # @franchise.save
+      @franchise.save
       redirect_to franchise_path(@franchise) 
     else
       # binding.pry
