@@ -1,6 +1,5 @@
 class RatingsController < ApplicationController 
   before_action :require_login
-  before_action :require_correct_user, only: [:edit, :update]
 
   def new 
     @rating = Rating.new(franchise_id: params[:franchise_id], user_id: session[:user_id])
@@ -40,18 +39,7 @@ class RatingsController < ApplicationController
   end
 
   def find_rating 
-    @rating = Rating.find(params[:id])
-  end
-
-  def require_correct_user
-    unless belongs_to_user?
-      flash[:errors] = "Cannot edit another user's rating"
-      redirect_to user_path(current_user)
-    end
-  end
-
-  def belongs_to_user?
-    find_rating.user_id == session[:user_id]
+    @rating = current_user.ratings.find { |r| r.franchise_id == params[:franchise_id].to_i }
   end
 
 end
