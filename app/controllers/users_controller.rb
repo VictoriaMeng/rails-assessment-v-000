@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user?
-    session[:user_id] == params[:id]
+    session[:user_id] == params[:id].to_i
   end
 
 end

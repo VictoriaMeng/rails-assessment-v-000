@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :ratings 
   end
   get '/sort', to: 'franchises#sort'
-
+  get '/auth/facebook/callback' => 'sessions#fb_create'
 end
