@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.find_by(name: params[:user][:name])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id.to_s
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def fb_create 
+    binding.pry
     @user = User.find_or_create_by(id: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.password = auth['info']['name']
@@ -24,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy 
-    session.delete(:user_id)
+    session.clear
     redirect_to root_path
   end
 
