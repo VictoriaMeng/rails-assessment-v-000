@@ -25,6 +25,7 @@ module ApplicationHelper
   end
 
   def display_errors(my_obj)
+    # binding.pry
     my_obj.errors.full_messages if my_obj && my_obj.errors.any?
   end
 
