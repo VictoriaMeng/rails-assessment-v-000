@@ -12,4 +12,6 @@ Clone the app repo to your local drive.
 
 Navigate into the root folder and run `bundle install`.
 
-Run `rails s` in your terminal and navigate to http://localhost:3000/ to sign up and login to the app.
+Run `rake db:migrate` to run ActiveRecord migrations.
+
+Then, run `rails s` navigate to http://localhost:3000/ to sign up and login to the app.
