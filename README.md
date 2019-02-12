@@ -1,9 +1,15 @@
-# README
+## README
 
 RateMyFav is an app that lets you submit and vote on your favorite franchises.
 
+Users can create accounts either manually or through Facebook authentication and give star Ratings to the Franchises on the website.
+
 This is the Rails-only version of RateMyFav. No Javascript is used for asynchronous GET/POST requests. Instead, all API interactions are written with RESTful and custom Rails routes to demonstrate an understanding of standard Rails routing.
 
-# Installation Instructions
+## Installation
 
-Clone the repo, navigate into it, and run `rails s` to start the local Rails server. The app should open in your web browser automatically.
+Clone the app repo to your local drive. 
+
+Navigate into the root folder and run `bundle install`.
+
+Run `rails s` in your terminal and navigate to http://localhost:3000/ to sign up and login to the app.
