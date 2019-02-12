@@ -6,6 +6,8 @@ Users can create accounts either manually or through Facebook authentication and
 
 This is the Rails-only version of RateMyFav. No Javascript is used for asynchronous GET/POST requests. Instead, all API interactions are written with RESTful and custom Rails routes to demonstrate an understanding of standard Rails routing.
 
+Blog post about this app's development [here](https://victoriameng.github.io/rails_portfolio_project_ratemyfav_aka_dont_rely_too_much_on_helpers).
+
 ## Installation
 
 Clone the app repo to your local drive. 
